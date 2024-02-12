@@ -1,6 +1,5 @@
 class BasketCaseController < ApplicationController
-  before_action :set_fruits
-  before_action :set_items
+  before_action :set_fruits, :set_items, :set_order
 
   def index; end
 
@@ -29,5 +28,11 @@ class BasketCaseController < ApplicationController
 
     def set_items
       @list_items = @fruits
+    end
+    
+    def set_order
+      default_order = 'asc'
+      params[:order] ||= default_order
+      @order = params[:order]
     end
 end
