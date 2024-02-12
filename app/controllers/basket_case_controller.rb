@@ -13,6 +13,8 @@ class BasketCaseController < ApplicationController
   def order_by_amount
     # code here
 
+    @list_items = @list_items.sort_by {|name, amount| amount }
+
     render 'basket_case/index'
   end
 
